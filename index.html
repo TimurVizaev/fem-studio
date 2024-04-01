@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>FEM Studio</title>
+        <meta name="description" content="FEM Studio is a small yet powerful tool to visualize Finite Elements Method models (bdf, dat and op2 Nastran files)" />
+		<meta name="keywords" content="FEM Nastran mesh bdf dat op2 viewer" />
+		<meta name="author" content="Timur Vizaev">
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/Console.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script> 
+        <script src="js/bvhtree.js"></script>       
+        <script src="js/OrbitControls.js"></script>       
+
+		<style>
+			body 
+            {
+				font-family: Monospace;
+				background-color: #f0f0f0;
+                background-image: radial-gradient(rgba(248, 248, 248, 0.949), rgba(170, 170, 170, 0.808));
+				margin: 0px;
+				overflow: hidden;
+			}
+		</style>
+    </head>
+    <body>
+        <script src="https://jdataview.github.io/dist/jdataview.js"></script>
+
+        <script src="js/ReadUtils.js"></script>
+        <script src="js/MathUtils.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/Filesaver.js"></script>
+        <script src="js/CCapture.all.min.js"></script>
+        <script src="js/GeometryHelper.js"></script>
+        <script src="js/FEXOptions.js"></script>
+        <script src="js/FEXColor.js"></script>
+        <script src="js/FEM.js"></script>
+        <script src="js/SelectionManager.js"></script>
+
+        <link rel="stylesheet" href="css/vex.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vex-js/4.1.0/js/vex.combined.min.js"></script> 
+        <script>vex.defaultOptions.className = 'vex-theme-os'</script>
+        <script src="js/Console.js"></script>
+
+        <div id="container" style="line-height:0;">
+                <!-- <canvas id="mainCanvas"></canvas> -->
+
+                <div class="title-wrapper">
+                    <h1>FEM Studio</h1>
+                    <h5>A FEX successor</h5>
+                    <img src="img/favicon.png"/>
+                    <br>
+                    <br>
+                    <h5>This is a minimalist (60kb) Nastran BDF/DAT/OP2 reader in pre-alpha stage</h5>
+                    <h5>It works completely on your device (no data is transmitted anywhere!)</h5>
+                    <br>
+                    <h4>Drag and drop a *.bdf, *.dat or *.op2 file</h4>
+                    <br>
+                    <h5>or</h5>
+                    <button id="loadTestModelButton">Load test model</button>
+                    <h5><a href="https://en.wikipedia.org/wiki/Finite_element_method" target="_blank">What is FEM?</a></h5>
+                    <h5><a href="https://en.wikipedia.org/wiki/Nastran" target="_blank">What is Nastran?</a></h5>
+                    <br>
+                    <h5>Star this project on Github</h5>
+                    <a href=""><img src="img/github-mark.svg" style="height: 48px;"/></a>
+                </div>
+
+                <div id="loading-wrapper" style="display:none;">
+                    <div class="spinner">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+                </div>
+
+                <!-- <progress id="progressBar" value="0.4" max="1"></progress> -->
+
+                <div id="colorSpectrumHolder" class="absolute">
+                </div>
+
+                <input id="fileInput" type="file" accept=".bdf,.dat,.blk,.op2,.txt" class="absolute" style="display:none;" onchange='OpenFile(event)'>
+        </div>
+
+        
+        <div id="consoleHolder" class="absolute"></div>
+
+        
+        <script src="js/Materials.js"></script>
+        <script src="js/App.js"></script>
+        </body>
+</html>
+
+<!-- Copyright Timur Vizaev 2014-2024 FEM Studio -->

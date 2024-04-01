@@ -1,0 +1,212 @@
+/* 
+Copyright Timur Vizaev 2014-2024
+
+FEM Studio 
+*/
+
+
+#consoleHolder
+{
+   position: fixed;
+   bottom: 20px;
+   left: 20px;
+   padding: 4px;
+   background-color: rgba(85, 85, 85, 0.438);
+   opacity: 1.0;
+   max-height:40%;
+   min-width: 300px;
+   max-width:90%;
+   display: flex;
+   flex: 0.8;
+   border: 0px;
+   border-radius: 5px;
+}
+
+.simple-console {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	font-family: sans-serif;
+	font-size: 12px;
+	font-family: monospace;
+	color:black;
+}
+
+.simple-console-output {
+	overflow: auto;
+}
+
+::placeholder {
+	color:#555;
+}
+
+.simple-console-output,
+.simple-console-input-wrapper {
+	flex: 0;
+	flex-basis: auto;
+}
+.simple-console-input-wrapper {
+	display: flex;
+	flex-shrink: 0;
+}
+.simple-console-input {
+	flex: 1;
+	font-size: inherit;
+	font-family: inherit;
+	height: 1em;
+	color: inherit;
+	background: transparent;
+	border: 0;
+	box-shadow: 0 1px 0 transparent;
+}
+.simple-console-input:focus {
+	outline: 0;
+	box-shadow: 0 1px 0 rgba(59, 40, 40, 0.2);
+}
+.simple-console-input-wrapper button {
+	margin-left: 0.2rem;
+	background: transparent;
+	color: inherit;
+	border: 0;
+	padding: 0;
+	font-size: 1em;
+	cursor: pointer;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.simple-console-input-wrapper button svg {
+	width: 1em;
+	height: 1em;
+	pointer-events: none;
+}
+.simple-console-input-wrapper button {
+	outline: 0;
+}
+.simple-console-input-wrapper button:hover,
+.simple-console-input-wrapper button:focus {
+	color: #4078c0;
+}
+
+.simple-console-input-wrapper button:active {
+	opacity: 0.8;
+}
+.simple-console-input-wrapper .popup-menu {
+	position: absolute;
+	right: 0;
+	margin: 0.5em;
+	margin-top: 1.5em;
+	border: 1px solid rgba(128, 128, 128, 0.5);
+	border-radius: 0.2em;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	cursor: default;
+}
+@media (max-width: 52em) {
+	.simple-console-input-wrapper .popup-menu {
+		min-width: 0;
+		left: 0;
+	}
+}
+.popup-menu[aria-hidden="true"] {
+	display: none;
+}
+.popup-menu .menu-item:first-child {
+	border-top-left-radius: 0.2em;
+	border-top-right-radius: 0.2em;
+}
+.popup-menu .menu-item:last-child {
+	border-bottom-left-radius: 0.2em;
+	border-bottom-right-radius: 0.2em;
+}
+.menu-divider {
+	border: 0;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+	margin: 0.3em 0;
+}
+.popup-menu .menu-item {
+	padding: 0.25rem 0.5rem;
+}
+.popup-menu .menu-item:hover {
+	background: rgba(128, 128, 128, 0.1);
+}
+.popup-menu .menu-item:focus,
+.popup-menu .menu-item:active {
+	background: #4078c0;
+	color: white;
+	outline: 0;
+}
+.simple-console-input-wrapper,
+.entry {
+	padding: 0.25rem 0.5rem;
+	padding-left: 1rem; /* = A */
+	position: relative;
+}
+.input-chevron {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 1rem; /* = A */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-help {
+	position: absolute;
+	right: 18px;
+	top: 5px;
+	bottom:0;
+	width: 10px;
+	display: flex;
+	align-items: top;
+	justify-content: left;
+	color:#444;
+}
+
+.input-minimize {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	bottom:0;
+	width: 8px;
+	display: flex;
+	align-items: top;
+	justify-content: left;
+	color:#444;
+}
+
+.entry.input {
+	color: black;
+}
+.error {
+	color: black;
+	background: rgba(255, 0, 0, 0.368);
+}
+
+.warning {
+	color: black;
+	background: rgba(255, 170, 42, 0.3);
+}
+
+.info {
+	color: black;
+	background: rgba(34, 177, 243, 0.3);
+}
+
+.success {
+	color: black;
+	background: rgba(59, 238, 49, 0.3);
+}
+
+
+
+.light,
+.light .popup-menu {
+	background: white;
+	color: black;
+}
